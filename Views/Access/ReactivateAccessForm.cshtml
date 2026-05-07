@@ -1,0 +1,43 @@
+@model AccessManagementWebApp.Models.ReactivateAccessRequestModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Reactivate Access</title>
+</head>
+<body>
+    <h1>Reactivate Access</h1>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div style="color:red;">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <p style="color:green;">@ViewBag.SuccessMessage</p>
+    }
+
+    <form method="post" action="/Access/ReactivateAccess">
+        <div>
+            <label for="Username">Username:</label>
+            <input type="text" id="Username" name="Username" value="@Model?.Username" required />
+        </div>
+        <div>
+            <label for="ApplicationId">Application ID:</label>
+            <input type="number" id="ApplicationId" name="ApplicationId" value="@(Model?.ApplicationId ?? 0)" required />
+        </div>
+        <button type="submit">Reactivate Access</button>
+    </form>
+</body>
+</html>
