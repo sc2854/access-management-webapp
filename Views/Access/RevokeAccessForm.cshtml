@@ -6,38 +6,123 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Revoke Access</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
 </head>
-<body>
-    <h1>Revoke Access</h1>
+<body class="bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen">
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <a href="/" class="text-2xl font-bold text-slate-900">Access Management</a>
+        </div>
+    </nav>
 
-    @if (!ViewData.ModelState.IsValid)
-    {
-        <div style="color:red;">
-            <ul>
-                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+    <section class="py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto animate-fade-in">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h1 class="text-3xl font-bold text-slate-900 mb-2">Revoke Access</h1>
+                <p class="text-slate-600 mb-6">Remove a user's access to an application</p>
+
+                @if (!ViewData.ModelState.IsValid)
                 {
-                    <li>@error.ErrorMessage</li>
+                    <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                        <h3 class="text-red-900 font-semibold mb-2">Errors:</h3>
+                        <ul class="text-red-700 space-y-1">
+                            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                            {
+                                <li>• @error.ErrorMessage</li>
+                            }
+                        </ul>
+                    </div>
                 }
-            </ul>
-        </div>
-    }
 
-    @if (ViewBag.SuccessMessage != null)
-    {
-        <p style="color:green;">@ViewBag.SuccessMessage</p>
-    }
+                @if (ViewBag.SuccessMessage != null)
+                {
+                    <div class="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                        <p class="text-green-700 font-medium">✓ @ViewBag.SuccessMessage</p>
+                    </div>
+                }
 
-    <form method="post" action="/Access/RevokeAccess">
-        <div>
-            <label for="Username">Username:</label>
-            <input type="text" id="Username" name="Username" value="@Model?.Username" required />
+                <form method="post" action="/Access/RevokeAccess" class="space-y-6">
+                    <div>
+                        <label for="Username" class="block text-sm font-medium text-slate-700 mb-2">Username</label>
+                        <input type="text" id="Username" name="Username" value="@Model?.Username" required 
+                               class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition" />
+                    </div>
+
+                    <div>
+                        <label for="FunctionName" class="block text-sm font-medium text-slate-700 mb-2">Functions</label>
+<select id="FunctionName" name="FunctionName" required 
+                                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+                            @if (string.IsNullOrEmpty(Model?.FunctionName))
+                            {
+                                <option value="" selected>-- Select a Function --</option>
+                            }
+                            else
+                            {
+                                <option value="">-- Select a Function --</option>
+                            }
+                            @if (Model?.FunctionName == "Invoice Search")
+                            {
+                                <option value="Invoice Search" selected>Invoice Search</option>
+                            }
+                            else
+                            {
+                                <option value="Invoice Search">Invoice Search</option>
+                            }
+                            @if (Model?.FunctionName == "IRN")
+                            {
+                                <option value="IRN" selected>IRN</option>
+                            }
+                            else
+                            {
+                                <option value="IRN">IRN</option>
+                            }
+                            @if (Model?.FunctionName == "Preprocess")
+                            {
+                                <option value="Preprocess" selected>Preprocess</option>
+                            }
+                            else
+                            {
+                                <option value="Preprocess">Preprocess</option>
+                            }
+                            @if (Model?.FunctionName == "Malaysia eTax")
+                            {
+                                <option value="Malaysia eTax" selected>Malaysia eTax</option>
+                            }
+                            else
+                            {
+                                <option value="Malaysia eTax">Malaysia eTax</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="flex gap-4 pt-4">
+                        <button type="submit" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200">
+                            Revoke Access
+                        </button>
+                        <a href="/" class="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-900 font-semibold py-2 px-4 rounded-lg transition duration-200 text-center">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div>
-            <label for="ApplicationId">Application ID:</label>
-            <input type="number" id="ApplicationId" name="ApplicationId" value="@(Model?.ApplicationId ?? 0)" required />
-        </div>
-        <button type="submit">Revoke Access</button>
-    </form>
+    </section>
 </body>
 </html>

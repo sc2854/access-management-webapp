@@ -5,15 +5,123 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Access Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        .animate-fade-in-delay-1 {
+            animation: fadeIn 0.6s ease-out 0.1s both;
+        }
+        .animate-fade-in-delay-2 {
+            animation: fadeIn 0.6s ease-out 0.2s both;
+        }
+        .animate-fade-in-delay-3 {
+            animation: fadeIn 0.6s ease-out 0.3s both;
+        }
+    </style>
 </head>
-<body>
-    <h1>Access Management</h1>
-    <ul>
-        <li><a href="/Access/CreateAccessForm">Create Access Request</a></li>
-        <li><a href="/Access/RevokeAccessForm">Revoke Access</a></li>
-        <li><a href="/Access/ChangePermissionForm">Change Access Permission</a></li>
-        <li><a href="/Access/ReactivateAccessForm">Reactivate Access</a></li>
-    </ul>
+<body class="bg-gradient-to-br from-slate-50 to-slate-100">
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <h1 class="text-2xl font-bold text-slate-900">Access Management</h1>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center animate-fade-in">
+            <h2 class="text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+                Manage Access with Ease
+            </h2>
+            <p class="text-lg text-slate-600 mb-8">
+                Streamlined access management for your applications. Create, revoke, update, or reactivate user access in just a few clicks.
+            </p>
+            <div class="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Create Access -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 animate-fade-in-delay-1">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-2">Create Access</h3>
+                    <p class="text-slate-600 mb-4">Request new access to applications for users.</p>
+                    <a href="/Access/CreateAccessForm" class="inline-block text-blue-600 hover:text-blue-700 font-medium">
+                        Get Started →
+                    </a>
+                </div>
+
+                <!-- Revoke Access -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 animate-fade-in-delay-2">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-2">Revoke Access</h3>
+                    <p class="text-slate-600 mb-4">Remove user access from applications.</p>
+                    <a href="/Access/RevokeAccessForm" class="inline-block text-red-600 hover:text-red-700 font-medium">
+                        Get Started →
+                    </a>
+                </div>
+
+                <!-- Change Permission -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 animate-fade-in-delay-3">
+                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-2">Change Permission</h3>
+                    <p class="text-slate-600 mb-4">Update user access permission levels.</p>
+                    <a href="/Access/ChangePermissionForm" class="inline-block text-amber-600 hover:text-amber-700 font-medium">
+                        Get Started →
+                    </a>
+                </div>
+
+                <!-- Reactivate Access -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 animate-fade-in-delay-3">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-2">Reactivate Access</h3>
+                    <p class="text-slate-600 mb-4">Restore previously revoked access.</p>
+                    <a href="/Access/ReactivateAccessForm" class="inline-block text-green-600 hover:text-green-700 font-medium">
+                        Get Started →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white border-t border-slate-200 mt-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <p class="text-center text-slate-600">
+                &copy; 2026 Access Management System. All rights reserved.
+            </p>
+        </div>
+    </footer>
 </body>
 </html>

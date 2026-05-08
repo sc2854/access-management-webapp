@@ -8,7 +8,8 @@ namespace AccessManagementWebApp.Models
         public string Username { get; set; } = string.Empty;
 
         [Required]
-        public int ApplicationId { get; set; }
+        [Display(Name = "Functions")]
+        public string FunctionName { get; set; } = string.Empty;
     }
 
     public class RevokeAccessRequestModel
@@ -17,7 +18,8 @@ namespace AccessManagementWebApp.Models
         public string Username { get; set; } = string.Empty;
 
         [Required]
-        public int ApplicationId { get; set; }
+        [Display(Name = "Functions")]
+        public string FunctionName { get; set; } = string.Empty;
     }
 
     public class ChangePermissionRequestModel
@@ -26,7 +28,8 @@ namespace AccessManagementWebApp.Models
         public string Username { get; set; } = string.Empty;
 
         [Required]
-        public int ApplicationId { get; set; }
+        [Display(Name = "Functions")]
+        public string FunctionName { get; set; } = string.Empty;
 
         [Required]
         public string NewPermission { get; set; } = string.Empty;
@@ -38,6 +41,7 @@ namespace AccessManagementWebApp.Models
         public string Username { get; set; } = string.Empty;
 
         [Required]
-        public int ApplicationId { get; set; }
+        [Display(Name = "Functions")]
+        public string FunctionName { get; set; } = string.Empty;
     }
 }

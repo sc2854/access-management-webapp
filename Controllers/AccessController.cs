@@ -33,15 +33,15 @@ namespace AccessManagementWebApp.Controllers
                 return View("CreateAccessForm", model);
             }
 
-            var existingAccess = await _repository.CheckUserAccessAsync(model.Username, model.ApplicationId);
+            var existingAccess = await _repository.CheckUserAccessAsync(model.Username, model.FunctionName);
 
             if (existingAccess != null)
             {
-                ModelState.AddModelError(string.Empty, "User already has access to this application.");
+                ModelState.AddModelError(string.Empty, "User already has access to this function.");
                 return View("CreateAccessForm", model);
             }
 
-            var created = await _repository.CreateAccessAsync(model.Username, model.ApplicationId);
+            var created = await _repository.CreateAccessAsync(model.Username, model.FunctionName);
             if (!created)
             {
                 ModelState.AddModelError(string.Empty, "Unable to create access request.");
@@ -67,14 +67,14 @@ namespace AccessManagementWebApp.Controllers
                 return View("RevokeAccessForm", model);
             }
 
-            var existingAccess = await _repository.CheckUserAccessAsync(model.Username, model.ApplicationId);
+            var existingAccess = await _repository.CheckUserAccessAsync(model.Username, model.FunctionName);
             if (existingAccess == null)
             {
-                ModelState.AddModelError(string.Empty, "User does not have access to this application.");
+                ModelState.AddModelError(string.Empty, "User does not have access to this function.");
                 return View("RevokeAccessForm", model);
             }
 
-            var revoked = await _repository.RevokeAccessAsync(model.Username, model.ApplicationId);
+            var revoked = await _repository.RevokeAccessAsync(model.Username, model.FunctionName);
             if (!revoked)
             {
                 ModelState.AddModelError(string.Empty, "Unable to revoke access.");
@@ -100,14 +100,14 @@ namespace AccessManagementWebApp.Controllers
                 return View("ChangePermissionForm", model);
             }
 
-            var existingAccess = await _repository.CheckUserAccessAsync(model.Username, model.ApplicationId);
+            var existingAccess = await _repository.CheckUserAccessAsync(model.Username, model.FunctionName);
             if (existingAccess == null)
             {
-                ModelState.AddModelError(string.Empty, "User does not have access to this application.");
+                ModelState.AddModelError(string.Empty, "User does not have access to this function.");
                 return View("ChangePermissionForm", model);
             }
 
-            var updated = await _repository.UpdateAccessAsync(model.Username, model.ApplicationId, model.NewPermission);
+            var updated = await _repository.UpdateAccessAsync(model.Username, model.FunctionName, model.NewPermission);
             if (!updated)
             {
                 ModelState.AddModelError(string.Empty, "Unable to update permission.");
@@ -133,14 +133,14 @@ namespace AccessManagementWebApp.Controllers
                 return View("ReactivateAccessForm", model);
             }
 
-            var existingAccess = await _repository.CheckUserAccessAsync(model.Username, model.ApplicationId);
+            var existingAccess = await _repository.CheckUserAccessAsync(model.Username, model.FunctionName);
             if (existingAccess != null)
             {
-                ModelState.AddModelError(string.Empty, "User already has active access to this application.");
+                ModelState.AddModelError(string.Empty, "User already has active access to this function.");
                 return View("ReactivateAccessForm", model);
             }
 
-            var reactivated = await _repository.ReactivateAccessAsync(model.Username, model.ApplicationId);
+            var reactivated = await _repository.ReactivateAccessAsync(model.Username, model.FunctionName);
             if (!reactivated)
             {
                 ModelState.AddModelError(string.Empty, "Unable to reactivate access.");
