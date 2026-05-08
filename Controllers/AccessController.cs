@@ -4,20 +4,36 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AccessManagementWebApp.Controllers
 {
+    /// <summary>
+    /// Controller for managing user access requests, including creating, revoking, and changing permissions.
+    /// </summary>
     public class AccessController : Controller
     {
         private readonly IUserAccessRepository _repository;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AccessController"/> class.
+        /// </summary>
+        /// <param name="repository">The user access repository for database operations.</param>
         public AccessController(IUserAccessRepository repository)
         {
             _repository = repository;
         }
 
+        /// <summary>
+        /// Displays the main index page for access management.
+        /// </summary>
+        /// <returns>The index view.</returns>
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Displays the form for creating a new access request.
+        /// Supports legacy ASPX URL for backward compatibility.
+        /// </summary>
+        /// <returns>The create access form view.</returns>
         [HttpGet("createAccessForm.aspx")]
         [HttpGet("Access/CreateAccessForm")]
         public IActionResult CreateAccessForm()
@@ -25,6 +41,11 @@ namespace AccessManagementWebApp.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Handles the POST request to create a new access request.
+        /// </summary>
+        /// <param name="model">The model containing the access request details.</param>
+        /// <returns>The view with success or error messages.</returns>
         [HttpPost]
         public async Task<IActionResult> RequestAccess(CreateAccessRequestModel model)
         {
@@ -52,6 +73,11 @@ namespace AccessManagementWebApp.Controllers
             return View("CreateAccessForm");
         }
 
+        /// <summary>
+        /// Displays the form for revoking user access.
+        /// Supports legacy ASPX URL for backward compatibility.
+        /// </summary>
+        /// <returns>The revoke access form view.</returns>
         [HttpGet("Access/RevokeAccessForm")]
         [HttpGet("revokeAccessForm.aspx")]
         public IActionResult RevokeAccessForm()
@@ -59,6 +85,11 @@ namespace AccessManagementWebApp.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Handles the POST request to revoke user access.
+        /// </summary>
+        /// <param name="model">The model containing the revoke request details.</param>
+        /// <returns>The view with success or error messages.</returns>
         [HttpPost]
         public async Task<IActionResult> RevokeAccess(RevokeAccessRequestModel model)
         {
@@ -85,6 +116,11 @@ namespace AccessManagementWebApp.Controllers
             return View("RevokeAccessForm");
         }
 
+        /// <summary>
+        /// Displays the form for changing user permissions.
+        /// Supports legacy ASPX URL for backward compatibility.
+        /// </summary>
+        /// <returns>The change permission form view.</returns>
         [HttpGet("Access/ChangePermissionForm")]
         [HttpGet("changePermissionForm.aspx")]
         public IActionResult ChangePermissionForm()
@@ -92,6 +128,11 @@ namespace AccessManagementWebApp.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Handles the POST request to change user permissions.
+        /// </summary>
+        /// <param name="model">The model containing the change permission details.</param>
+        /// <returns>The view with success or error messages.</returns>
         [HttpPost]
         public async Task<IActionResult> ChangePermission(ChangePermissionRequestModel model)
         {
@@ -118,6 +159,11 @@ namespace AccessManagementWebApp.Controllers
             return View("ChangePermissionForm");
         }
 
+        /// <summary>
+        /// Displays the form for reactivating user access.
+        /// Supports legacy ASPX URL for backward compatibility.
+        /// </summary>
+        /// <returns>The reactivate access form view.</returns>
         [HttpGet("reactivateAccessForm.aspx")]
         [HttpGet("Access/ReactivateAccessForm")]
         public IActionResult ReactivateAccessForm()
@@ -125,6 +171,11 @@ namespace AccessManagementWebApp.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Handles the POST request to reactivate user access.
+        /// </summary>
+        /// <param name="model">The model containing the reactivate access details.</param>
+        /// <returns>The view with success or error messages.</returns>
         [HttpPost]
         public async Task<IActionResult> ReactivateAccess(ReactivateAccessRequestModel model)
         {
