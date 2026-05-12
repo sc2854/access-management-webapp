@@ -1,54 +1,39 @@
 @{
-    Layout = null;
+    ViewData["Title"] = "Access Management";
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Access Management</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @@keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
         }
-        .animate-fade-in {
-            animation: fadeIn 0.6s ease-out;
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .animate-fade-in-delay-1 {
-            animation: fadeIn 0.6s ease-out 0.1s both;
-        }
-        .animate-fade-in-delay-2 {
-            animation: fadeIn 0.6s ease-out 0.2s both;
-        }
-        .animate-fade-in-delay-3 {
-            animation: fadeIn 0.6s ease-out 0.3s both;
-        }
-    </style>
-</head>
-<body class="bg-gradient-to-br from-slate-50 to-slate-100">
-    <nav class="bg-white shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <h1 class="text-2xl font-bold text-slate-900">Access Management</h1>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
+    }
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease-out;
+    }
+    .animate-fade-in-delay-1 {
+        animation: fadeIn 0.6s ease-out 0.1s both;
+    }
+    .animate-fade-in-delay-2 {
+        animation: fadeIn 0.6s ease-out 0.2s both;
+    }
+    .animate-fade-in-delay-3 {
+        animation: fadeIn 0.6s ease-out 0.3s both;
+    }
+</style>
+<section class="py-20 px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto text-center animate-fade-in">
-            <h2 class="text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+            <!--<h2 class="text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
                 Manage Access with Ease
             </h2>
             <p class="text-lg text-slate-600 mb-8">
-                Streamlined access management for your applications. Create, revoke, update, or reactivate user access in just a few clicks.
-            </p>
+                Streamlined access management for your applications. 
+            </p>-->
             <div class="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
         </div>
     </section>
@@ -115,13 +100,3 @@
             </div>
         </div>
     </section>
-
-    <footer class="bg-white border-t border-slate-200 mt-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <p class="text-center text-slate-600">
-                &copy; 2026 Access Management System. All rights reserved.
-            </p>
-        </div>
-    </footer>
-</body>
-</html>

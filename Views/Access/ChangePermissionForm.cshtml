@@ -1,38 +1,24 @@
 @model AccessManagementWebApp.Models.ChangePermissionRequestModel
 @{
-    Layout = null;
+    ViewData["Title"] = "Change Permission";
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Change Access Permission</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @@keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
         }
-        .animate-fade-in {
-            animation: fadeIn 0.6s ease-out;
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
-    </style>
-</head>
-<body class="bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen">
-    <nav class="bg-white shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <a href="/" class="text-2xl font-bold text-slate-900">Access Management</a>
-        </div>
-    </nav>
-
-    <section class="py-12 px-4 sm:px-6 lg:px-8">
+    }
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease-out;
+    }
+</style>
+<section class="py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto animate-fade-in">
             <div class="bg-white rounded-lg shadow-lg p-8">
                 <h1 class="text-3xl font-bold text-slate-900 mb-2">Change Access Permission</h1>
@@ -131,5 +117,3 @@
             </div>
         </div>
     </section>
-</body>
-</html>

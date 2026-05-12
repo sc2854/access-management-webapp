@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Access Management</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            background-color: #0b3d91;
+            color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .top-nav__brand {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+        .top-nav__links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .top-nav__links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .top-nav__user {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+            max-width: 1200px;
+            margin: 1.5rem auto;
+            padding: 0 1rem 1.5rem;
+        }
+        .side-menu {
+            background-color: #172b6d;
+            border-radius: 8px;
+            padding: 1rem;
+            color: white;
+            min-height: calc(100vh - 160px);
+        }
+        .side-menu h2 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+        .side-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 0.5rem;
+            border-radius: 5px;
+            margin-bottom: 0.25rem;
+            transition: background-color 0.2s ease;
+        }
+        .side-menu a:hover,
+        .side-menu a.active {
+            background-color: rgba(255,255,255,0.14);
+        }
+        .page-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+        }
+        .page-title {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+            color: #0b3d91;
+        }
+        .content-section {
+            padding: 1rem 0;
+        }
+        footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e1e5ea;
+            color: #666;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    @{
+        var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+        var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+        string Active(string action, string controller = "Access") =>
+            string.Equals(action, currentAction, StringComparison.OrdinalIgnoreCase)
+            && string.Equals(controller, currentController, StringComparison.OrdinalIgnoreCase)
+                ? "active"
+                : string.Empty;
+    }
+
+    <header class="top-nav">
+        <div class="top-nav__brand">Access Management Web App</div>
+        <div class="top-nav__links">
+            <a href="https://iesportal.intl.att.com" target="_blank" rel="noopener noreferrer">IES Portal</a>
+            <div class="top-nav__user">@((User?.Identity?.IsAuthenticated ?? false) ? User.Identity.Name : "Not signed in")</div>
+        </div>
+    </header>
+
+    <div class="layout-grid">
+        <aside class="side-menu">
+            <h2>Navigation</h2>
+            <a asp-controller="Access" asp-action="Index" class="@(Active("Index"))">Home</a>
+            <a asp-controller="Access" asp-action="CreateAccessForm" class="@(Active("CreateAccessForm"))">Request Access</a>
+            <a asp-controller="Access" asp-action="RevokeAccessForm" class="@(Active("RevokeAccessForm"))">Revoke Access</a>
+            <a asp-controller="Access" asp-action="ChangePermissionForm" class="@(Active("ChangePermissionForm"))">Change Permission</a>
+            <a asp-controller="Access" asp-action="ReactivateAccessForm" class="@(Active("ReactivateAccessForm"))">Reactivate Access</a>
+        </aside>
+
+        <main class="page-container">
+            <h1 class="page-title">@ViewData["Title"]</h1>
+            <div class="content-section">
+                @RenderBody()
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div>Disclaimer: This application is intended for authorized AT&T internal use only. Unauthorized access or distribution of the information contained within this system is prohibited.</div>
+        <div style="margin-top: .5rem;">&copy; @DateTime.UtcNow.Year AT&T International Access Management</div>
+    </footer>
+</body>
+</html>
