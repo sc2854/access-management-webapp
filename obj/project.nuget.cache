@@ -1,36 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "jyw61DfVquA=",
+  "dgSpecHash": "mou0CzJDVkynEr1mltv0SqsTJ73hZVGGNb7TRT1c4QD9Bbscd81bLjJhE4BEZ4A9tmXWqM9zrfuQ7R1xQ9FOSA==",
   "success": true,
   "projectFilePath": "C:\\Users\\sc2854\\source\\repos\\access-management-webapp\\AccessManagementWebApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\sc2854\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
-    "C:\\Users\\sc2854\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
-    "C:\\Users\\sc2854\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
-    "C:\\Users\\sc2854\\.nuget\\packages\\oracle.manageddataaccess.core\\3.21.1\\oracle.manageddataaccess.core.3.21.1.nupkg.sha512",
-    "C:\\Users\\sc2854\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
-    "C:\\Users\\sc2854\\.nuget\\packages\\system.diagnostics.performancecounter\\4.7.0\\system.diagnostics.performancecounter.4.7.0.nupkg.sha512",
-    "C:\\Users\\sc2854\\.nuget\\packages\\system.directoryservices\\4.7.0\\system.directoryservices.4.7.0.nupkg.sha512",
-    "C:\\Users\\sc2854\\.nuget\\packages\\system.directoryservices.protocols\\4.7.0\\system.directoryservices.protocols.4.7.0.nupkg.sha512",
-    "C:\\Users\\sc2854\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
-    "C:\\Users\\sc2854\\.nuget\\packages\\system.io.filesystem.accesscontrol\\4.7.0\\system.io.filesystem.accesscontrol.4.7.0.nupkg.sha512",
-    "C:\\Users\\sc2854\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
-    "C:\\Users\\sc2854\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.7.0\\system.security.cryptography.protecteddata.4.7.0.nupkg.sha512",
-    "C:\\Users\\sc2854\\.nuget\\packages\\system.security.permissions\\4.7.0\\system.security.permissions.4.7.0.nupkg.sha512",
-    "C:\\Users\\sc2854\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
-    "C:\\Users\\sc2854\\.nuget\\packages\\system.text.json\\4.7.1\\system.text.json.4.7.1.nupkg.sha512",
-    "C:\\Users\\sc2854\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
+    "C:\\Users\\sc2854\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\sc2854\\.nuget\\packages\\oracle.manageddataaccess.core\\23.26.200\\oracle.manageddataaccess.core.23.26.200.nupkg.sha512",
+    "C:\\Users\\sc2854\\.nuget\\packages\\system.collections.immutable\\10.0.3\\system.collections.immutable.10.0.3.nupkg.sha512",
+    "C:\\Users\\sc2854\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.2\\system.configuration.configurationmanager.6.0.2.nupkg.sha512",
+    "C:\\Users\\sc2854\\.nuget\\packages\\system.diagnostics.performancecounter\\6.0.2\\system.diagnostics.performancecounter.6.0.2.nupkg.sha512",
+    "C:\\Users\\sc2854\\.nuget\\packages\\system.directoryservices.protocols\\8.0.2\\system.directoryservices.protocols.8.0.2.nupkg.sha512",
+    "C:\\Users\\sc2854\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\sc2854\\.nuget\\packages\\system.formats.asn1\\6.0.1\\system.formats.asn1.6.0.1.nupkg.sha512",
+    "C:\\Users\\sc2854\\.nuget\\packages\\system.memory\\4.6.3\\system.memory.4.6.3.nupkg.sha512",
+    "C:\\Users\\sc2854\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.1.2\\system.runtime.compilerservices.unsafe.6.1.2.nupkg.sha512",
+    "C:\\Users\\sc2854\\.nuget\\packages\\system.security.cryptography.pkcs\\6.0.4\\system.security.cryptography.pkcs.6.0.4.nupkg.sha512",
+    "C:\\Users\\sc2854\\.nuget\\packages\\system.security.cryptography.protecteddata\\6.0.0\\system.security.cryptography.protecteddata.6.0.0.nupkg.sha512",
+    "C:\\Users\\sc2854\\.nuget\\packages\\system.security.permissions\\6.0.1\\system.security.permissions.6.0.1.nupkg.sha512",
+    "C:\\Users\\sc2854\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Oracle.ManagedDataAccess.Core' 3.21.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5pm2-9mr2-3frq",
-      "libraryId": "Oracle.ManagedDataAccess.Core",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }
